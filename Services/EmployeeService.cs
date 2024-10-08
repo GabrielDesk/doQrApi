@@ -16,7 +16,7 @@ namespace doQrApi.Services
 
         public void AddEmployee(Employee employee)
         {
-            _employeeRepository.AddEmployee(employee);
+            _employeeRepository.AddEmployee(employee); 
         }
 
         public void UpdateEmployee(Employee employee) 
