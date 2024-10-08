@@ -75,7 +75,6 @@ namespace doQrApi.Repositories.EmployeeRepo
 
         public List<Employee> GetAllEmployees()
         {
-            //.. = ToList();
             return [.. _database.TB_Employees];
         }
 
