@@ -7,3 +7,4 @@ namespace doQrApi.Objects.Response.EmployeeResponse
        public List<Employee>? AllEmployees { get; set; }
     }
 }
+ 
