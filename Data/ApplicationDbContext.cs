@@ -4,7 +4,7 @@ using doQrApi.Objects;
 using Microsoft.EntityFrameworkCore;
 
 namespace doQrApi.Data
-{
+{ 
 #pragma warning disable CS1591
     public class ApplicationDbContext : DbContext
     {
