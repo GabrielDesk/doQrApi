@@ -32,7 +32,7 @@ namespace doQrApi.Controllers
         /// <response code="400">Se a lista estiver vazia</response> 
         [HttpGet("GetAllEmployees")]
         [ProducesResponseType(200)]
-        public ActionResult<IEnumerable<string>> GetAllEmployees()
+        public ActionResult<IEnumerable<Employee>> GetAllEmployees()
         {
             GetAllEmployeesResponse response = new();
             //IEnumerable<string> headerValues = null;
