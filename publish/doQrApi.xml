@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>doQrApi</name>
+    </assembly>
+    <members>
+        <member name="M:doQrApi.Controllers.EmployeeController.GetAllEmployees">
+            <summary>
+            Busca todos os funcionários cadastrados.
+            </summary>
+            <returns>Todos os funcionários cadastrados</returns>
+            <response code="200">Retorna a lista de todos os funcionários cadastrados</response>
+            <response code="400">Se a lista estiver vazia</response> 
+        </member>
+        <member name="M:doQrApi.Controllers.EmployeeController.GetEmployeeByName(doQrApi.Objects.Request.EmployeeRequest.GetEmployeeByNameRequest)">
+            <summary>
+            Busca o(s) funcionário(s) pelo nome.
+            </summary>
+            <param name="request"></param>
+            <returns>Uma lista usuário a partir do nome buscado</returns>
+            <remarks>
+            Sample request
+                POST/GetEmployeeByName
+                {
+                    "name": Ronaldo Ferreira Martins
+                }
+            </remarks>
+            <response code="200">Retorna o(s) funcionário(s)</response>
+            <response code="400">Se não existir funcionário(s) com o nome atribuido ao parâmetro</response> 
+        </member>
+        <member name="M:doQrApi.Controllers.EmployeeController.AddEmployee(doQrApi.Entites.Employee)">
+            <summary>
+            Adiciona o funcionário ao banco de dados.
+            </summary>
+            <param name="request"></param>
+            <returns>Sucesso</returns>
+            <remarks>
+            Sample request
+                POST/AddEmployee
+                {
+                     "name": Ronaldo Ferreira Martins
+                     "email": "ronaldo.martins@EEexample.com",
+                     "CPF": "12345678901",
+                     "phone": "5512987654321",
+                     "birthDate": "1985-04-20",
+                     "employeeContractType": 1,
+                     "status": 1
+                }
+            </remarks>
+            <response code="200">Retorna sucesso ao criar funcionário</response>
+            <response code="400">Se não for possível adicionar funcionário</response> 
+        </member>
+        <member name="M:doQrApi.Controllers.EmployeeController.UpdateEmployee(doQrApi.Entites.Employee)">
+            <summary>
+            Altera dados do funcionário.
+            </summary>
+            <param name="request"></param>
+            <returns>Sucesso</returns>
+            <remarks>
+            Função recebe todos os dados em JSON para alteração no banco de dados.
+            Sample request
+                POST/UpdateEmployee
+                {
+                     "name": Ronaldo Ferreira Martins
+                     "email": "ronaldo.martins@ex.com",
+                     "CPF": "12345678901",
+                     "phone": "5512987654321",
+                     "birthDate": "1985-04-20",
+                     "employeeContractType": 2,
+                     "status": 1
+                }
+            </remarks>
+            <response code="200">Retorna sucesso ao atualizar funcionário;</response>
+            <response code="400">Se não for possível atualizar dados do funcionário;</response> 
+        </member>
+        <member name="M:doQrApi.Controllers.EmployeeController.HandleStatusEmployee(System.Guid,doQrApi.Objects.Enums.EStatus)">
+            <summary>
+            Altera status do funcionário.
+            </summary>
+            <param name="EmployeeId"></param>
+            <param name="Status"></param>
+            <returns>Sucesso</returns>
+            <response code="200">Retorna sucesso ao mudar status do funcionário</response>
+            <response code="400">Se não for possível mudar status do funcionário</response> 
+        </member>
+        <member name="M:doQrApi.Controllers.EmployeeController.DeleteEmployee(System.Guid)">
+            <summary>
+            Remove funcionário do banco de dados.
+            </summary>
+            <param name="EmployeeId"></param>
+            <returns>Sucesso</returns>
+            <response code="200">Retorna sucesso ao remover funcionário do banco de dados</response>
+            <response code="400">Se não for possível remover funcionário do banco de dados</response> 
+        </member>
+        <member name="T:doQrApi.Migrations.TB_Employees">
+            <inheritdoc />
+        </member>
+        <member name="M:doQrApi.Migrations.TB_Employees.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:doQrApi.Migrations.TB_Employees.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:doQrApi.Migrations.TB_contracttype">
+            <inheritdoc />
+        </member>
+        <member name="M:doQrApi.Migrations.TB_contracttype.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:doQrApi.Migrations.TB_contracttype.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:doQrApi.Objects.Errors.ErrorCodes">
+            <summary>
+            Contains standardized error codes for employee-related operations.
+            </summary>
+        </member>
+        <member name="F:doQrApi.Objects.Errors.ErrorCodes.GeneralErrorFetchingAllEmployees">
+            <summary>
+            General error fetching all employees.
+            </summary>
+        </member>
+        <member name="F:doQrApi.Objects.Errors.ErrorCodes.GeneralErrorFetchingEmployeeByName">
+            <summary>
+            General error fetching employee by name.
+            </summary>
+        </member>
+        <member name="F:doQrApi.Objects.Errors.ErrorCodes.GeneralErrorAddingEmployee">
+            <summary>
+            General error adding employee.
+            </summary>
+        </member>
+        <member name="F:doQrApi.Objects.Errors.ErrorCodes.GeneralErrorUpdatingEmployee">
+            <summary>
+            General error updating employee.
+            </summary>
+        </member>
+        <member name="F:doQrApi.Objects.Errors.ErrorCodes.EmployeeAlreadyExists">
+            <summary>
+            Employee already exists.
+            </summary>
+        </member>
+        <member name="F:doQrApi.Objects.Errors.ErrorCodes.EmployeeDoesNotExist">
+            <summary>
+            Employee does not exist (for updating).
+            </summary>
+        </member>
+        <member name="F:doQrApi.Objects.Errors.ErrorCodes.ErrorChangingEmployeeStatus">
+            <summary>
+            Error changing employee status.
+            </summary>
+        </member>
+        <member name="F:doQrApi.Objects.Errors.ErrorCodes.ErrorDeletingEmployee">
+            <summary>
+            Error deleting employee.
+            </summary>
+        </member>
+    </members>
+</doc>
