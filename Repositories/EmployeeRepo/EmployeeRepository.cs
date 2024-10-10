@@ -80,7 +80,7 @@ namespace doQrApi.Repositories.EmployeeRepo
 
         public List<Employee>? GetEmployeeByName(GetEmployeeByNameRequest request)
         {
-            return [.. _database.TB_Employees.Where(state => employee.Name.ToLower().Contains(request.Name.ToLower()))];
+            return [.. _database.TB_Employees.Where(state => state.Name.ToLower().Contains(request.Name.ToLower()))];
         }
     }
 }
