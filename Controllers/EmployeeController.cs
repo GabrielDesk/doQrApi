@@ -59,7 +59,7 @@ namespace doQrApi.Controllers
             return Ok(response);
         }
 
-        // GET api/<EmployeeController>/GetEmployeeByName
+        // POST api/<EmployeeController>/GetEmployeeByName
         /// <summary>
         /// Busca o(s) funcionário(s) pelo nome.
         /// </summary>
@@ -74,7 +74,7 @@ namespace doQrApi.Controllers
         /// </remarks>
         /// <response code="200">Retorna o(s) funcionário(s)</response>
         /// <response code="400">Se não existir funcionário(s) com o nome atribuido ao parâmetro</response> 
-        [HttpGet("GetEmployeeByName")]
+        [HttpPost("GetEmployeeByName")]
         public IActionResult GetEmployeeByName(GetEmployeeByNameRequest request)
         {
             GetEmployeeByNameResponse response = new();
