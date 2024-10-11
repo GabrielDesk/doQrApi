@@ -2,6 +2,7 @@
 using doQrApi.Entites;
 using doQrApi.Objects.Enums;
 using doQrApi.Objects.Request.EmployeeRequest;
+using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 namespace doQrApi.Repositories.EmployeeRepo
@@ -80,7 +81,8 @@ namespace doQrApi.Repositories.EmployeeRepo
 
         public List<Employee>? GetEmployeeByName(GetEmployeeByNameRequest request)
         {
-            return [.. _database.TB_Employees.Where(state => state.Name.ToLower().Contains(request.Name.ToLower()))];
+            return [.. _database.TB_Employees.FromSqlInterpolated($"CALL doqrdatabase.proc_getEmployeeByName({request.Name})")];
+                //Where(state => state.Name.ToLower().Contains(request.Name.ToLower()))];
         }
     }
 }
