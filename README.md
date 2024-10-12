@@ -25,6 +25,27 @@ Cada funcionário contém os seguintes campos:
 
 ### Estrutura e Descrição
 
+### Filosofia DDD 
+``` bash
+├───Controllers
+├───Data
+├───Entites
+├───Migrations
+├───Objects
+│   ├───Enums
+│   ├───Errors
+│   ├───Request
+│   │   └───EmployeeRequest
+│   └───Response
+│       ├───EmployeeResponse
+│       └───Messages
+├───Properties
+├───publish
+│   └───publish
+├───Repositories
+│   └───EmployeeRepo
+└───Services
+```
 Abaixo está a lista dos principais endpoints implementados para o gerenciamento de funcionários:
 
 - **`GET /GetAllEmployees`** - Retorna uma lista de todos os funcionários.
